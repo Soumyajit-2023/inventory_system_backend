@@ -6,6 +6,8 @@ import com.example.inventory.entity.Order;
 import com.example.inventory.repository.CustomerRepository;
 import com.example.inventory.repository.InventoryItemRepository;
 import com.example.inventory.repository.OrderRepository;
+import com.example.inventory.event.OrderEvent;
+import com.example.inventory.event.OrderEventProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,9 @@ public class OrderService {
     private InventoryService inventoryService;
     @Autowired
     private InventoryItemRepository inventoryItemRepository;
+
+    @Autowired
+    private OrderEventProducer orderEventProducer;
 
     // Place an order and return the created Order entity
     public Order placeOrder(Long customerId, Long itemId, int quantity) {
@@ -63,7 +68,21 @@ public class OrderService {
         }
 
         Order order = new Order(customerOpt.get(), item, quantity, status);
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+
+        // Publish to Kafka
+        OrderEvent event = new OrderEvent(
+                savedOrder.getId(),
+                savedOrder.getCustomer() != null ? savedOrder.getCustomer().getId() : null,
+                savedOrder.getCustomer() != null ? savedOrder.getCustomer().getName() : null,
+                savedOrder.getItem() != null ? savedOrder.getItem().getId() : null,
+                savedOrder.getItem() != null ? savedOrder.getItem().getName() : null,
+                savedOrder.getQuantity(),
+                savedOrder.getStatus());
+
+        orderEventProducer.publishOrderEvent(event);
+
+        return savedOrder;
     }
 
     public List<Order> getOrdersByCustomer(Long customerId) {

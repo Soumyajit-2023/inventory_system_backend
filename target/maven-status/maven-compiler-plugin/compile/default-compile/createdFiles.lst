@@ -2,7 +2,9 @@ com/example/inventory/InventoryInitializer.class
 com/example/inventory/repository/InventoryItemRepository.class
 com/example/inventory/controller/AuthController$LoginRequest.class
 com/example/inventory/controller/ItemStoreController.class
+com/example/inventory/event/OrderEvent.class
 com/example/inventory/repository/OrderRepository.class
+com/example/inventory/event/OrderEventProducer.class
 com/example/inventory/controller/AuthController.class
 com/example/inventory/service/WebScrapingService.class
 com/example/inventory/service/InventoryService.class
@@ -16,6 +18,7 @@ com/example/inventory/InventorySystemApplication.class
 com/example/inventory/entity/InventoryItem.class
 com/example/inventory/controller/OrderController.class
 com/example/inventory/controller/ItemStoreController$1.class
+com/example/inventory/config/KafkaConfig.class
 com/example/inventory/service/OrderService.class
 com/example/inventory/entity/Order.class
 com/example/inventory/controller/CustomerController.class
