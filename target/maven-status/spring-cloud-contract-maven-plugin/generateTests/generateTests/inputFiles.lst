@@ -1,0 +1,7 @@
+inventory/controller/shouldGetAllCustomers.groovy
+inventory/controller/shouldGetOrdersForCustomer.groovy
+inventory/controller/shouldGetAllInventoryItems.groovy
+inventory/controller/shouldPlaceOrder.groovy
+inventory/controller/shouldCreateCustomer.groovy
+inventory/controller/shouldCreateInventoryItem.groovy
+inventory/controller/shouldDeleteInventoryItem.groovy
