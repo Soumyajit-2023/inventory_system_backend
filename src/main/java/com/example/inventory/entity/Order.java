@@ -21,14 +21,21 @@ public class Order {
 
     private String status; // "PLACED" or "REJECTED"
 
+    private boolean isOrderDelivered;
+
     public Order() {
     }
 
-    public Order(Customer customer, InventoryItem item, int quantity, String status) {
+    public Order(Customer customer, InventoryItem item, int quantity, String status, boolean isOrderDelivered) {
         this.customer = customer;
         this.item = item;
         this.quantity = quantity;
         this.status = status;
+        this.isOrderDelivered = isOrderDelivered;
+    }
+
+    public Order(Customer customer, InventoryItem item, int quantity, String status) {
+        this(customer, item, quantity, status, false);
     }
 
     public Long getId() {
@@ -65,5 +72,13 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public boolean isOrderDelivered() {
+        return isOrderDelivered;
+    }
+
+    public void setOrderDelivered(boolean orderDelivered) {
+        isOrderDelivered = orderDelivered;
     }
 }

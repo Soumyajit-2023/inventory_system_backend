@@ -39,7 +39,8 @@ public class OrderService {
                     customerOpt.orElse(null),
                     itemOpt.orElse(null),
                     quantity,
-                    "REJECTED");
+                    "REJECTED",
+                    false);
             return orderRepository.save(rejectedOrder);
         }
 
@@ -52,7 +53,8 @@ public class OrderService {
                     customerOpt.orElse(null),
                     itemOpt.orElse(null),
                     quantity,
-                    "REJECTED");
+                    "REJECTED",
+                    false);
             return orderRepository.save(rejectedOrder);
         }
 
@@ -66,7 +68,7 @@ public class OrderService {
             status = "REJECTED";
         }
 
-        Order order = new Order(customerOpt.get(), item, quantity, status);
+        Order order = new Order(customerOpt.get(), item, quantity, status, false);
         Order savedOrder = orderRepository.save(order);
 
         // Publish to Kafka
@@ -77,7 +79,8 @@ public class OrderService {
                 savedOrder.getItem() != null ? savedOrder.getItem().getId() : null,
                 savedOrder.getItem() != null ? savedOrder.getItem().getName() : null,
                 savedOrder.getQuantity(),
-                savedOrder.getStatus());
+                savedOrder.getStatus(),
+                savedOrder.isOrderDelivered());
 
         orderEventProducer.publishOrderEvent(event);
 

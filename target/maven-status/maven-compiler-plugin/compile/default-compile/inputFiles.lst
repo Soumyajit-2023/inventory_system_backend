@@ -13,6 +13,7 @@
 /Users/sonaskar/Documents/inventory_system/inventory-system/src/main/java/com/example/inventory/event/OrderEventConsumer.java
 /Users/sonaskar/Documents/inventory_system/inventory-system/src/main/java/com/example/inventory/controller/AuthController.java
 /Users/sonaskar/Documents/inventory_system/inventory-system/src/main/java/com/example/inventory/service/WebScrapingService.java
+/Users/sonaskar/Documents/inventory_system/inventory-system/src/main/java/com/example/inventory/service/DeliveryAgent.java
 /Users/sonaskar/Documents/inventory_system/inventory-system/src/main/java/com/example/inventory/event/OrderEventProducer.java
 /Users/sonaskar/Documents/inventory_system/inventory-system/src/main/java/com/example/inventory/controller/ItemStoreController.java
 /Users/sonaskar/Documents/inventory_system/inventory-system/src/main/java/com/example/inventory/service/CustomerService.java

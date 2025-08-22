@@ -8,12 +8,13 @@ public class OrderEvent {
     private String itemName;
     private int quantity;
     private String status;
+    private boolean isOrderDelivered;
 
     public OrderEvent() {
     }
 
     public OrderEvent(Long orderId, Long customerId, String customerName, Long itemId, String itemName, int quantity,
-            String status) {
+            String status, boolean isOrderDelivered) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.customerName = customerName;
@@ -21,6 +22,7 @@ public class OrderEvent {
         this.itemName = itemName;
         this.quantity = quantity;
         this.status = status;
+        this.isOrderDelivered = isOrderDelivered;
     }
 
     public Long getOrderId() {
@@ -77,5 +79,13 @@ public class OrderEvent {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public boolean isOrderDelivered() {
+        return isOrderDelivered;
+    }
+
+    public void setOrderDelivered(boolean orderDelivered) {
+        isOrderDelivered = orderDelivered;
     }
 }

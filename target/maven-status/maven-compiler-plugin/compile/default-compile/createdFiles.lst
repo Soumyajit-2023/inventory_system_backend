@@ -17,6 +17,7 @@ com/example/inventory/controller/OrderController$PlaceOrderRequest.class
 com/example/inventory/App.class
 com/example/inventory/InventorySystemApplication.class
 com/example/inventory/entity/InventoryItem.class
+com/example/inventory/service/DeliveryAgent.class
 com/example/inventory/controller/OrderController.class
 com/example/inventory/controller/ItemStoreController$1.class
 com/example/inventory/config/KafkaConfig.class
