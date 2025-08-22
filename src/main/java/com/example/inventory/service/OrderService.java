@@ -61,7 +61,6 @@ public class OrderService {
 
         String status;
         if (enoughStock) {
-            inventoryService.decreaseStock(itemId, quantity);
             status = "PLACED";
         } else {
             status = "REJECTED";

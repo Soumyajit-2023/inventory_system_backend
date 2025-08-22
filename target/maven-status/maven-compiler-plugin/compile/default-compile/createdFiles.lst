@@ -1,5 +1,6 @@
 com/example/inventory/InventoryInitializer.class
 com/example/inventory/repository/InventoryItemRepository.class
+com/example/inventory/event/OrderEventConsumer.class
 com/example/inventory/controller/AuthController$LoginRequest.class
 com/example/inventory/controller/ItemStoreController.class
 com/example/inventory/event/OrderEvent.class
