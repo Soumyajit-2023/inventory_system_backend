@@ -64,6 +64,8 @@ public class OrderService {
         String status;
         if (enoughStock) {
             status = "PLACED";
+            // Synchronously reduce inventory after successful placement
+            inventoryService.decreaseStock(itemId, quantity);
         } else {
             status = "REJECTED";
         }
